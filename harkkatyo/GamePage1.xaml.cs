@@ -30,6 +30,9 @@ namespace harkkatyo
         //liikuteltava hahmo
         private Pelihahmo pelihahmo;
        
+        //
+        
+
         //viholliset
         private Pahis pahis;
         private Pahis2 pahis2;
@@ -152,21 +155,19 @@ namespace harkkatyo
             pelihahmo.SetLocation();
             pahis.SetLocation();
 
-            // collision...
+            // collisionit
            KarkkiCollision();
 
            PahisCollision();
            Pahis2Collision();
            Pahis3Collision();
 
-            MaaliCollide();
+           MaaliCollide();
+           WallCollision();
 
-           //maalinakyy();
-           // WallCollision();
-       }
-
-        
-
+            VainSuoraa();
+       
+       }        
 
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
@@ -214,7 +215,6 @@ namespace harkkatyo
             {
                 rootFrame.GoBack();
             }
-
         }
 
         //KARTAN LUKEMINEN TIEDOSTOSTA
@@ -301,7 +301,7 @@ namespace harkkatyo
         }
 
 
-        /*
+        
         //SEINÄ COLLISION
         private void WallCollision()
         {
@@ -318,15 +318,15 @@ namespace harkkatyo
                 BRect.Intersect(WRerct);
                 if (!BRect.IsEmpty)
                 {
-                    pelihahmo.hit = true;
-
+                    pelihahmo.LocationX = pelihahmo.OldLocationX;
+                    pelihahmo.LocationY = pelihahmo.OldLocationY;
+                    //pelihahmo.step = -1;
                     break;
                 }
-                else pelihahmo.hit = false;
-                
+               // pelihahmo.step = 1;              
             }
         }
-        */
+        
         // VIHOLLIS TÖRMÄÄYS
         private void PahisCollision()
         {
@@ -374,6 +374,7 @@ namespace harkkatyo
             }
         }
 
+        //MAALI COLLISION
         private void MaaliCollide()
         {
             Rect HRect = new Rect(
@@ -390,6 +391,35 @@ namespace harkkatyo
                   
         }
 
+        private void VainSuoraa()
+        {
+            if(LeftPressed == true)
+            {
+                RightPressed = false;
+                Uppressed = false;
+                Downpressed = false;
+            }
+            if (RightPressed == true)
+            {
+                LeftPressed = false;
+                Uppressed = false;
+                Downpressed = false;
+            }
+            if (Uppressed == true)
+            {
+                RightPressed = false;
+                LeftPressed = false;
+                Downpressed = false;
+            }
+            if (Downpressed == true)
+            {
+                RightPressed = false;
+                Uppressed = false;
+                LeftPressed = false;
+            }
+        }
+
+    
 
 
 
@@ -397,9 +427,8 @@ namespace harkkatyo
 
 
 
-
-        //dunt touch
-    }
+    //dunt touch
+}
 }
     
 

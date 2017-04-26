@@ -19,14 +19,7 @@ namespace harkkatyo
 {
     public sealed partial class Pelihahmo : UserControl
     {
-        // animaation timer
-        private DispatcherTimer timer;
-
-        // Hahmon näkyminen
-        private int currentFrame = 0;
-        private int frameHeight = 46; // objektin koko
-
-        private double step = 10;
+        public double step = 5;
 
         // hahmo on törmännyt
         public bool hit = false;
@@ -34,34 +27,20 @@ namespace harkkatyo
         public Pelihahmo()
         {
             this.InitializeComponent();
-
-            //animaatio
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 125);
-            // millisekunnit
-            timer.Tick += Timer_Tick;
-            timer.Start();
         }
 
         //sijainti x ja y -akselit
         public double LocationX { get; set; }
         public double LocationY { get; set; }
         public object SpriteSheetOffset { get; private set; }
-
-        internal void Move(int v)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Timer_Tick(object sender, object e)
-        {
-            SpriteSheetOffset = currentFrame * -frameHeight;
-        }
+        public double OldLocationX;
+        public double OldLocationY;
 
         //vauhti
         public void MoveLeft()
         {
-
+            OldLocationX = LocationX;
+            OldLocationY = LocationY;
             //LocationX -= 10;
             UpdateLocation();
             if (hit == false)
@@ -72,14 +51,15 @@ namespace harkkatyo
         // OIKEALLE
         public void MoveRight()
         {
+            OldLocationX = LocationX;
+            OldLocationY = LocationY;
             //LocationX += 10;
             UpdateLocation();
             if (hit == false)
                 LocationX += step;
             else step = 0;           
         }
-        
-        
+     
         private void UpdateLocation()
         {
             SetValue(Canvas.LeftProperty, LocationX);
@@ -88,6 +68,8 @@ namespace harkkatyo
         //YLÖS
         public void MoveUp()
         {
+            OldLocationX = LocationX;
+            OldLocationY = LocationY;
             //LocationY -= 10;
             UpdateLocation();
             if (hit == false)
@@ -98,6 +80,8 @@ namespace harkkatyo
         //ALAS
         public void MoveDown()
         {
+            OldLocationX = LocationX;
+            OldLocationY = LocationY;
             //LocationY += 10;
             UpdateLocation();
             if (hit == false)
