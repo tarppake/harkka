@@ -8,11 +8,9 @@
     mc:Ignorable="d"
 >
 
-        <Ellipse Width="30" Height="30">
-            <Ellipse.Fill>
-            <ImageBrush ImageSource="Assets\hahmo.png"></ImageBrush>
-            </Ellipse.Fill>
-        </Ellipse>
+    <Grid Width="30" Height="30">
+        <Image Source="Assets/hahmo.png"></Image>
+    </Grid>
 
    
     

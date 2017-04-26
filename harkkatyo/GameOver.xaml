@@ -10,7 +10,7 @@
     Width="782">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image Source="Assets\havisit.png"></Image>
+        <Image Source="Assets\hävisit.png"></Image>
         <Button x:Name="takaisinalkuun" Content="valikkoon" Click="takaisinalkuun_Click" Height="70" Margin="346,185,0,345"></Button>
     </Grid>
 </Page>

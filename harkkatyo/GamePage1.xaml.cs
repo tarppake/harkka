@@ -29,9 +29,8 @@ namespace harkkatyo
     {
         //liikuteltava hahmo
         private Pelihahmo pelihahmo;
-       
-        //
-        
+
+
 
         //viholliset
         private Pahis pahis;
@@ -102,11 +101,11 @@ namespace harkkatyo
             
             //KARKIT
             Karkki karkki = new Karkki();
-            karkit.Add(new Karkki { LocationX = 498, LocationY = 47 });
-            karkit.Add(new Karkki { LocationX = 230, LocationY = 368 });
-            karkit.Add(new Karkki { LocationX = 321, LocationY = 270 });
-            karkit.Add(new Karkki { LocationX = 690, LocationY = 138 });
-            karkit.Add(new Karkki { LocationX = 414, LocationY = 508 });
+            karkit.Add(new Karkki { LocationX = 500, LocationY = 51 });
+            karkit.Add(new Karkki { LocationX = 326, LocationY = 376 });
+            karkit.Add(new Karkki { LocationX = 326, LocationY = 276 });
+            karkit.Add(new Karkki { LocationX = 696, LocationY = 144 });
+            karkit.Add(new Karkki { LocationX = 420, LocationY = 514 });
 
             foreach (Karkki Karkki in karkit)
             {
@@ -133,13 +132,12 @@ namespace harkkatyo
             timer.Tick += Timer_Tick;
             timer.Start();
 
+
             //lataa kentän seinät
             Loadmap();
-
-
         }
 
-        //jos painat jotain nuolta liikkuu sinneppäi
+
         private void Timer_Tick(object sender, object e)
         {
             if (LeftPressed) pelihahmo.MoveLeft();
@@ -167,7 +165,8 @@ namespace harkkatyo
 
             VainSuoraa();
        
-       }        
+       }
+
 
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
@@ -214,8 +213,8 @@ namespace harkkatyo
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();
-            }
-        }
+            }          
+       }
 
         //KARTAN LUKEMINEN TIEDOSTOSTA
         private async void Loadmap()

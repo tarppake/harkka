@@ -146,16 +146,21 @@
   <ItemGroup>
     <Content Include="Assets\gameover.png" />
     <Content Include="Assets\hahmo.png" />
+    <Content Include="Assets\hävisit.png" />
     <Content Include="Assets\karkki.png" />
     <Content Include="Assets\lattia.png" />
     <Content Include="Assets\loota.png" />
     <Content Include="Assets\maali.png" />
     <Content Include="Assets\maze1.txt" />
+    <Content Include="Assets\monsteri3.png" />
+    <Content Include="Assets\mosteri1.png" />
+    <Content Include="Assets\mosteri2.png" />
     <Content Include="Assets\pelaa.png" />
+    <Content Include="Assets\Rainbows.mp3" />
     <Content Include="Assets\tekijat.png" />
     <Content Include="Assets\tekijattausta.png" />
     <Content Include="Assets\valikko.png" />
-    <Content Include="Assets\havisit.png" />
+    <Content Include="Assets\valikkoon.png" />
     <Content Include="Assets\voitto.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -223,6 +228,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

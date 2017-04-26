@@ -19,7 +19,7 @@ namespace harkkatyo
 {
     public sealed partial class Pelihahmo : UserControl
     {
-        public double step = 5;
+        public double step = 7;
 
         // hahmo on törmännyt
         public bool hit = false;

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,11 +23,33 @@ namespace harkkatyo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //musiikki
+        public MediaElement mediaElement;
+
         public MainPage()
         {
             this.InitializeComponent();
+            //load audio
+            LoadAudio();
+         
         }
 
+        //musiikki
+        private async void LoadAudio()
+        {
+            StorageFolder folder =
+                await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            StorageFile file =
+                await folder.GetFileAsync("Rainbows.mp3");
+            var stream = await file.OpenAsync(FileAccessMode.Read);
+
+            mediaElement = new MediaElement();
+           // mediaElement.AutoPlay = false;
+            mediaElement.SetSource(stream, file.ContentType);
+           //play media element
+            mediaElement.Play();
+
+        }
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GamePage1));
