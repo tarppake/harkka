@@ -45,7 +45,7 @@ namespace harkkatyo
         private List<lattia> walls;
 
         //karkkílista
-          private List<Karkki> karkit;
+        private List<Karkki> karkit;
 
 
         //pelilloopi
@@ -89,8 +89,10 @@ namespace harkkatyo
             };
             Tausta.Children.Add(pahis3);
 
+            karkit = new List<Karkki>();
+
             //KARKIT
-            List<Karkki> karkit = new List<Karkki>();
+            Karkki karkki = new Karkki();
             karkit.Add(new Karkki { LocationX = 498, LocationY = 47 });
             karkit.Add(new Karkki { LocationX = 230, LocationY = 368 });
             karkit.Add(new Karkki { LocationX = 321, LocationY = 270 });
@@ -100,6 +102,7 @@ namespace harkkatyo
             foreach (Karkki Karkki in karkit)
             {
                 Tausta.Children.Add(Karkki);
+                karkit.Add(Karkki);
                 Karkki.SetLocation();
             };
 
