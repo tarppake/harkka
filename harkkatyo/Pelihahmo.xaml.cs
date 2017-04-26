@@ -26,12 +26,10 @@ namespace harkkatyo
         private int currentFrame = 0;
         private int frameHeight = 46; // objektin koko
 
-        //vauhti
-        private readonly double Maxspeed = 10; //maksimivauhti
+        private double step = 10;
 
         // hahmo on törmännyt
         public bool hit = false;
-        private double step = 3;
 
         public Pelihahmo()
         {
@@ -64,43 +62,47 @@ namespace harkkatyo
         public void MoveLeft()
         {
 
-            LocationX -= 10;
+            //LocationX -= 10;
             UpdateLocation();
-            if (hit == false) LocationX += step;
-
+            if (hit == false)
+                LocationX -= step;
+            else step = 0;
         }
 
         // OIKEALLE
         public void MoveRight()
         {
-            LocationX += 10;
+            //LocationX += 10;
             UpdateLocation();
-            if (hit == false) LocationX -= step;
+            if (hit == false)
+                LocationX += step;
+            else step = 0;           
         }
         
         
         private void UpdateLocation()
         {
             SetValue(Canvas.LeftProperty, LocationX);
-
         }
 
         //YLÖS
         public void MoveUp()
         {
-            LocationY -= 10;
+            //LocationY -= 10;
             UpdateLocation();
-            if (hit == false) {
-                LocationY += step;
-            };
+            if (hit == false)
+                LocationY -= step;
+            else step = 0;
         }
 
         //ALAS
         public void MoveDown()
         {
-            LocationY += 10;
+            //LocationY += 10;
             UpdateLocation();
-            if (hit == false) LocationY -= step;
+            if (hit == false)
+                LocationY += step;
+            else step = 0;
         }
 
         // sijainnin päivitys

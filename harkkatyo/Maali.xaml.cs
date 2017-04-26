@@ -19,9 +19,25 @@ namespace harkkatyo
 {
     public sealed partial class Maali : UserControl
     {
+        public double LocationX { get; set; }
+        public double LocationY { get; set; }
+
         public Maali()
         {
             this.InitializeComponent();
+             
+        }
+
+        private void UpdateLocation()
+        {
+            SetValue(Canvas.LeftProperty, LocationX);
+            SetValue(Canvas.TopProperty, LocationY);
+
+        }
+        public void SetLocation()
+        {
+            SetValue(Canvas.LeftProperty, LocationX);
+            SetValue(Canvas.TopProperty, LocationY);
         }
     }
 }

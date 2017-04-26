@@ -21,7 +21,7 @@ namespace pelihahmoliikkuvuus
     {
         public double LocationX { get; set; }
         public double LocationY { get; set; }
-        public bool Picked = false;
+  
        
 
 

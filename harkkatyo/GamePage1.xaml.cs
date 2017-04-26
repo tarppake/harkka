@@ -47,6 +47,11 @@ namespace harkkatyo
         //karkkílista
         private List<Karkki> karkit;
 
+        //karkkicount
+        private int karkkicount;
+
+        //maali
+        private Maali maali;
 
         //pelilloopi
         private DispatcherTimer timer;
@@ -62,7 +67,7 @@ namespace harkkatyo
             //pelihahmo taustaan
             pelihahmo = new Pelihahmo
             {
-                LocationX = 46,
+                LocationX = 47,
                 LocationY = 506
             };
             Tausta.Children.Add(pelihahmo); //lisää pelihahmon taustaan
@@ -73,8 +78,8 @@ namespace harkkatyo
                 LocationX = 184,
                 LocationY = 50
             };
-
             Tausta.Children.Add(pahis);
+
             pahis2 = new Pahis2
             {
                 LocationX = 230,
@@ -88,9 +93,10 @@ namespace harkkatyo
                 LocationY = 400
             };
             Tausta.Children.Add(pahis3);
-
+            
             karkit = new List<Karkki>();
 
+            
             //KARKIT
             Karkki karkki = new Karkki();
             karkit.Add(new Karkki { LocationX = 498, LocationY = 47 });
@@ -102,9 +108,17 @@ namespace harkkatyo
             foreach (Karkki Karkki in karkit)
             {
                 Tausta.Children.Add(Karkki);
-                karkit.Add(Karkki);
                 Karkki.SetLocation();
             };
+
+            //maali
+            maali = new Maali
+            {
+                LocationX = 690,
+                LocationY = 414
+            };
+            Tausta.Children.Add(maali);
+            maali.SetLocation();
 
             //näppäimet alas/ylös
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
@@ -119,8 +133,7 @@ namespace harkkatyo
             //lataa kentän seinät
             Loadmap();
 
-            // collision...
-            KarkkiCollision();
+
         }
 
         //jos painat jotain nuolta liikkuu sinneppäi
@@ -137,8 +150,20 @@ namespace harkkatyo
 
             //päivitä sijainti
             pelihahmo.SetLocation();
-            pahis.SetLocation();          
-        }
+            pahis.SetLocation();
+
+            // collision...
+           KarkkiCollision();
+
+           PahisCollision();
+           Pahis2Collision();
+           Pahis3Collision();
+
+            MaaliCollide();
+
+           //maalinakyy();
+           // WallCollision();
+       }
 
         
 
@@ -244,7 +269,7 @@ namespace harkkatyo
 
         }
 
-
+        //KARKKIEN KERÄÄMINEN
         public void KarkkiCollision()
         {
             //loop flowers list
@@ -265,14 +290,115 @@ namespace harkkatyo
                 {
                     //remove flower from canvas
                     Tausta.Children.Remove(karkki);
-                    karkki.Picked = true;
+
+                    //lisää muuttujaan +1
+                    karkkicount ++;
+                    //re,momve list
+                    karkit.Remove(karkki);
                     break;
                 }
             }
         }
 
 
+        /*
+        //SEINÄ COLLISION
+        private void WallCollision()
+        {
+            foreach (lattia lattia in walls)
+            {
+                Rect WRerct = new Rect(
+                    lattia.LocationX, lattia.LocationY,
+                    lattia.ActualWidth, lattia.ActualHeight
+                    );
+                Rect BRect = new Rect(
+                    pelihahmo.LocationX, pelihahmo.LocationY,
+                    pelihahmo.ActualWidth, pelihahmo.ActualHeight
+                    );
+                BRect.Intersect(WRerct);
+                if (!BRect.IsEmpty)
+                {
+                    pelihahmo.hit = true;
 
+                    break;
+                }
+                else pelihahmo.hit = false;
+                
+            }
+        }
+        */
+        // VIHOLLIS TÖRMÄÄYS
+        private void PahisCollision()
+        {
+            Rect PRect = new Rect(
+                pahis.LocationX, pahis.LocationY,
+                pahis.ActualWidth, pahis.ActualHeight);
+            Rect HRect = new Rect(
+                pelihahmo.LocationX, pelihahmo.LocationY,
+                pelihahmo.ActualHeight, pelihahmo.ActualWidth);
+            Rect PRect2 = new Rect(
+                pahis2.LocationX, pahis2.LocationY,
+                pahis2.ActualWidth, pahis2.ActualHeight);
+            HRect.Intersect(PRect);
+            if (!HRect.IsEmpty)
+            {
+                this.Frame.Navigate(typeof(GameOver));
+            }
+        }
+        private void Pahis2Collision()
+        {
+            Rect HRect = new Rect(
+                pelihahmo.LocationX, pelihahmo.LocationY,
+                pelihahmo.ActualHeight, pelihahmo.ActualWidth);
+            Rect PRect2 = new Rect(
+                pahis2.LocationX, pahis2.LocationY,
+                pahis2.ActualWidth, pahis2.ActualHeight);
+            HRect.Intersect(PRect2);
+            if (!HRect.IsEmpty)
+            {
+                this.Frame.Navigate(typeof(GameOver));
+            }
+        }
+        private void Pahis3Collision()
+        {
+            Rect HRect = new Rect(
+                pelihahmo.LocationX, pelihahmo.LocationY,
+                pelihahmo.ActualHeight, pelihahmo.ActualWidth);
+            Rect PRect3 = new Rect(
+                pahis3.LocationX, pahis3.LocationY,
+                pahis3.ActualWidth, pahis3.ActualHeight);
+            HRect.Intersect(PRect3);
+            if (!HRect.IsEmpty)
+            {
+                this.Frame.Navigate(typeof(GameOver));
+            }
+        }
+
+        private void MaaliCollide()
+        {
+            Rect HRect = new Rect(
+                pelihahmo.LocationX, pelihahmo.LocationY,
+                pelihahmo.ActualHeight, pelihahmo.ActualWidth);
+            Rect MRect = new Rect(
+                maali.LocationX, maali.LocationY,
+                maali.ActualHeight, maali.ActualWidth);
+            HRect.Intersect(MRect);
+            if (!HRect.IsEmpty && karkit.Count == 0)
+            {
+                this.Frame.Navigate(typeof(Voitto));
+            }
+                  
+        }
+
+
+
+
+
+
+
+
+
+        //dunt touch
     }
 }
     

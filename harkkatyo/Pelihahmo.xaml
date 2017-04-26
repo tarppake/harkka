@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="40"
+    d:DesignWidth="40">
 
-    <Grid Width="46" Height="46">
+    <Grid Width="40" Height="40">
 
         <Image Source="Assets/hahmo.png" Width="46" Height="46" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
