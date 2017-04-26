@@ -9,9 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Canvas Width="782" Height="600" Background="Moccasin">
+        <Canvas Width="782" Height="600">
 
-            <Image Source="Assets\tekijattausta.png"></Image>
+            <Image Source="Assets\tekijaTtausta.png"></Image>
             <Button x:Name="BackButton" Content="Takaisin" 
                             Width="100" Margin="20"
                             Click="BackButton_Click"/>
