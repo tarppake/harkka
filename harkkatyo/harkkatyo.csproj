@@ -118,6 +118,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OhjeetPage.xaml.cs">
+      <DependentUpon>OhjeetPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pahis.xaml.cs">
       <DependentUpon>Pahis.xaml</DependentUpon>
     </Compile>
@@ -126,9 +129,6 @@
     </Compile>
     <Compile Include="Pahis3.xaml.cs">
       <DependentUpon>Pahis3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Palikka.xaml.cs">
-      <DependentUpon>Palikka.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pelihahmo.xaml.cs">
       <DependentUpon>Pelihahmo.xaml</DependentUpon>
@@ -155,6 +155,8 @@
     <Content Include="Assets\monsteri3.png" />
     <Content Include="Assets\mosteri1.png" />
     <Content Include="Assets\mosteri2.png" />
+    <Content Include="Assets\ohjeet.png" />
+    <Content Include="Assets\ohjeetnappi.png" />
     <Content Include="Assets\pelaa.png" />
     <Content Include="Assets\Rainbows.mp3" />
     <Content Include="Assets\tekijat.png" />
@@ -204,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="OhjeetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pahis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -215,10 +221,6 @@
     <Page Include="Pahis3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Palikka.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pelihahmo.xaml">
       <SubType>Designer</SubType>

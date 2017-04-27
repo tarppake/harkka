@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="harkkatyo.OhjeetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:harkkatyo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="782"
+    Height="600">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Canvas Width="782" Height="600">
+
+            <Image Source="Assets\ohjeet.png"></Image>
+            <Button x:Name="BackButton" Content="Takaisin" 
+                            Width="100" Margin="20"
+                            Click="BackButton_Click"/>
+
+        </Canvas>
+    </Grid>
+</Page>

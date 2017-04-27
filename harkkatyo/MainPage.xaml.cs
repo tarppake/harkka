@@ -29,9 +29,9 @@ namespace harkkatyo
         public MainPage()
         {
             this.InitializeComponent();
+
             //load audio
-            LoadAudio();
-         
+            LoadAudio(); 
         }
 
         //musiikki
@@ -44,12 +44,10 @@ namespace harkkatyo
             var stream = await file.OpenAsync(FileAccessMode.Read);
 
             mediaElement = new MediaElement();
-           // mediaElement.AutoPlay = false;
+            mediaElement.AutoPlay = true;
             mediaElement.SetSource(stream, file.ContentType);
-           //play media element
-            mediaElement.Play();
-
         }
+
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GamePage1));
@@ -59,6 +57,12 @@ namespace harkkatyo
         {
             //siirry tekijat sivulle
             this.Frame.Navigate(typeof(CreditsPage));
+        }
+
+        private void OhjeetButton_Click(object sender, RoutedEventArgs e)
+        {
+            //siirtyy ohjeet sivulle
+            this.Frame.Navigate(typeof(OhjeetPage));
         }
     }
 }

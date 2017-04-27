@@ -13,14 +13,16 @@
             <Image Source="Assets\valikko.png"/>
         </Canvas>
 
-        <Button x:Name="PlayButton" Margin="438,295,0,243"  Click="PlayButton_Click" Height="62">
+        <Button x:Name="PlayButton" Margin="438,271,0,267"  Click="PlayButton_Click" Height="62">
             <Image Source="Assets\pelaa.png" Width="200" Height="53"></Image>
         </Button>
-        <Button x:Name="CreditsButton"  Click="CreditsButton_Click" Margin="438,357,0,179">
+        <Button x:Name="CreditsButton"  Click="CreditsButton_Click" Margin="438,398,0,138">
             <Image Source="Assets\tekijat.png"  HorizontalAlignment="Left" Width="200" Height="53"></Image>
         </Button>
 
-
+        <Button x:Name="OhjeetButton" Click="OhjeetButton_Click" Margin="438,333,0,202">
+            <Image Source="Assets\ohjeetnappi.png"  HorizontalAlignment="Left" Width="200" Height="53"></Image>
+        </Button>
 
 
     </Grid>

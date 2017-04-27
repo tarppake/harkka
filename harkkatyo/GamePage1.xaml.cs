@@ -213,6 +213,7 @@ namespace harkkatyo
             if (rootFrame.CanGoBack)
             {
                 rootFrame.GoBack();
+           
             }          
        }
 
